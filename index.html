@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampFly Admin - Embedded Forms</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #eeedab;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        iframe {
+            display: none;
+            background-color: #e1bdbd;
+            width: 100%;
+            max-width: 1200px;
+            height: 600px;
+            margin: 20px auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .active {
+            display: block;
+        }
+
+        button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #ddd;
+            border: 1px solid #888;
+        }
+
+        button.activeButton {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>CampFly Admin - Embedded Forms</h1>
+
+    <button onclick="showForm('form1', 'buttonForm1')" id="buttonForm1">Trending Getaways</button>
+    <button onclick="showForm('form2', 'buttonForm2')" id="buttonForm2">Main Destinations & Icon</button>
+    <button onclick="showForm('form3', 'buttonForm3')" id="buttonForm3">Explore New Culture</button>
+    <button onclick="showForm('form4', 'buttonForm4')" id="buttonForm4">CustomerReviews</button>
+
+    <!-- Add more buttons for additional forms -->
+    <iframe id="form1" class="active" src="https://docs.google.com/forms/d/e/1FAIpQLSdYe4iq2jzXDbeF5Kxa7QsModWIQdJsoL_isMvDa5hly9Cmew/viewform?embedded=true" width="640" height="2850" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
+    <iframe id="form2" src="https://docs.google.com/forms/d/e/1FAIpQLSf-Yh6OgLEos5Kf_aNH4Z04PeTKsRjeABeJLFXKXLYs0PZmrQ/viewform?embedded=true" width="640" height="622" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
+    <iframe id="form3" src="https://docs.google.com/forms/d/e/1FAIpQLSf_mM9vDYLksyhh-IAr1o35wex8TSeyswwgfOosDYHKlmmRFA/viewform?embedded=true" width="640" height="2554" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
+    <iframe id="form4" src="https://docs.google.com/forms/d/e/1FAIpQLSfUj4pIQ9K43EivFFqAB16fWemnUiob21XZOhrwkewLqu1ycg/viewform?embedded=true" width="640" height="1158" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    <!-- Add more iframes for additional forms -->
+
+    <script>
+        function showForm(formId, buttonId) {
+            // Hide all iframes
+            var iframes = document.querySelectorAll('iframe');
+            iframes.forEach(function(iframe) {
+                iframe.classList.remove('active');
+            });
+
+            // Show the selected iframe
+            var selectedForm = document.getElementById(formId);
+            if (selectedForm) {
+                selectedForm.classList.add('active');
+            }
+
+            // Remove activeButton class from all buttons
+            var buttons = document.querySelectorAll('button');
+            buttons.forEach(function(button) {
+                button.classList.remove('activeButton');
+            });
+
+            // Add activeButton class to the clicked button
+            var clickedButton = document.getElementById(buttonId);
+            if (clickedButton) {
+                clickedButton.classList.add('activeButton');
+            }
+        }
+    </script>
+</body>
+</html>
